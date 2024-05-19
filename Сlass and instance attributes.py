@@ -4,20 +4,21 @@
 # Building total 
 # В цикле создайте 40 объектов класса Building и выведите их на экран командой print
 
-from random import randint
 class Building:
     total = 0
 
     def __init__(self):
         Building.total += 1
+        print(self)  # Выводим созданный объект при инициализации
+
+    def __str__(self):
+        return f'Building {Building.total}'  # Переопределяем строковое представление объекта
 
 
-Buildings = []
-Building_size = randint(1, 40)
-while len(Buildings) < Building_size:
-    new_Building = Building()
-    Buildings.append(new_Building)
-print(Building.total)
+for _ in range(40):
+    b = Building()
+
+print(f'Total buildings created: {Building.total}')
 
 
 
